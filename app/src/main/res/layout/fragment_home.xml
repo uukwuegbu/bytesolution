@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.HomeFragment">
+
+
+        <Button
+            android:id="@+id/buttonAdminSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Admin Signup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/buttonAdminSignin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Admin Signin"
+            app:layout_constraintEnd_toEndOf="@+id/buttonAdminSignup"
+            app:layout_constraintHorizontal_bias="0.514"
+            app:layout_constraintStart_toStartOf="@+id/buttonAdminSignup"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAdminSignup" />
+
+        <Button
+            android:id="@+id/buttonEmployeeSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Employee Signup"
+            app:layout_constraintEnd_toEndOf="@+id/buttonAdminSignin"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/buttonAdminSignin"
+            app:layout_constraintTop_toBottomOf="@+id/buttonAdminSignin" />
+
+        <Button
+            android:id="@+id/buttonEmployees"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="List of Employees"
+            app:layout_constraintBottom_toTopOf="@id/buttonCountries"
+            app:layout_constraintEnd_toEndOf="@+id/buttonEmployeeSignup"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/buttonEmployeeSignup"
+            app:layout_constraintTop_toBottomOf="@+id/buttonEmployeeSignup"
+            app:layout_constraintVertical_bias="0.07" />
+
+        <Button
+            android:id="@+id/buttonCountries"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="List of Countries"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/buttonEmployees"
+            app:layout_constraintVertical_bias="0.07" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
