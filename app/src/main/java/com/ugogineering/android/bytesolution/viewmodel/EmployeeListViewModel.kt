@@ -1,8 +1,11 @@
 package com.ugogineering.android.bytesolution.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
+import com.ugogineering.android.bytesolution.formatEmployeeResultList
 import com.ugogineering.android.bytesolution.model.EmployeeList
 import com.ugogineering.android.bytesolution.model.EmployeeResultList
 import com.ugogineering.android.bytesolution.network.Api
@@ -32,9 +35,20 @@ class EmployeeListViewModel: ViewModel() {
     val employees: LiveData<EmployeeList>
         get() = _employees
 
+
+
     private val _employeeList = MutableLiveData<List<EmployeeList.EmployeeResult?>?>()
     val employeeList: LiveData<List<EmployeeList.EmployeeResult?>?>
         get() = _employeeList
+
+    val employeeListString = Transformations.map(employeeList) { employeeList ->
+        formatEmployeeResultList(employeeList)
+    }
+
+    // Live data for list of employees
+    private val _employeeResultList = MutableLiveData<List<EmployeeResultList?>?>()
+    val employeeResultList: LiveData<List<EmployeeResultList?>?>
+        get() = _employeeResultList
 
     // Adding a coroutine job
     private var viewModelJob = Job()
@@ -58,7 +72,8 @@ class EmployeeListViewModel: ViewModel() {
                 var listResult = getEmployeeListDeferred.await()
                 _employees.value = listResult
                 _employeeList.value = listResult.result
-                _response.value = "Success. Response: ${listResult.response} . Status: ${listResult.status} . List is ${listResult.result}. And size is ${listResult.result?.size}" // "Success: ${listResult.size} Employees retrieved"
+                //_employeeResultList.value = listResult.result
+                _response.value = "Success. Response: ${listResult.response} . Status: ${listResult.status} And size is ${listResult.result?.size}"
             } catch (e: Exception) {
                 //_employees.value = EmployeeList("no", "no", "no") // List<EmployeeList> //ArrayList()
                 _response.value = "Failure: ${e.message}"
