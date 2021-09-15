@@ -9,10 +9,7 @@
             type="com.ugogineering.android.bytesolution.viewmodel.EmployeeListViewModel" />
     </data>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true">
+
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -44,17 +41,17 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/textViewTitle"
                 tools:text="Retrieval status" />
-            <TextView
-                android:id="@+id/textViewEmployeeList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/views_padding"
-                android:text="@{viewModel.employeeListString}"
-                android:textSize="25sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/employees_list"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 app:layout_constraintTop_toBottomOf="@id/textViewStatus"
-                tools:text="Employee List" />
+                app:layout_constraintBottom_toTopOf="@id/buttonBack"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
 
             <Button
                 android:id="@+id/buttonBack"
@@ -64,7 +61,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/buttonNext"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewEmployeeList" />
+                app:layout_constraintTop_toBottomOf="@+id/employees_list" />
 
             <Button
                 android:id="@+id/buttonNext"
@@ -74,10 +71,10 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/buttonBack"
-                app:layout_constraintTop_toBottomOf="@+id/textViewEmployeeList" />
+                app:layout_constraintTop_toBottomOf="@+id/employees_list" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+
 
 
 </layout>
