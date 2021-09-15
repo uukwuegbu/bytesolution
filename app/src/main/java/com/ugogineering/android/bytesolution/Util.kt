@@ -4,6 +4,8 @@ import android.content.res.Resources
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.ugogineering.android.bytesolution.model.EmployeeList
 import com.ugogineering.android.bytesolution.model.EmployeeResultList
 
@@ -54,3 +56,4 @@ fun formatEmployeeResultList(employees: List<EmployeeList.EmployeeResult?>?): Sp
         return Html.fromHtml(sb.toString())
     }
 }
+class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)
