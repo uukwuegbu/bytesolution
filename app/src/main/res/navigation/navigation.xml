@@ -73,6 +73,13 @@
         <action
             android:id="@+id/action_employeeDetailFragment_to_employeeListFragment"
             app:destination="@id/employeeListFragment" />
+        <argument
+            android:name="selectedEmployee"
+            app:argType="com.ugogineering.android.bytesolution.model.EmployeeList$EmployeeResult" />
+        <!--        <argument-->
+<!--            android:name="selectedEmployee"-->
+<!--            app:argType="com.ugogineering.android.bytesolution.model.EmployeeList.EmployeeResult"-->
+<!--            app:nullable="true" />-->
     </fragment>
     <fragment
         android:id="@+id/countriesListFragment"

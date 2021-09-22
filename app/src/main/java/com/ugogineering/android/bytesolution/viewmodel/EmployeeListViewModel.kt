@@ -15,6 +15,10 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class EmployeeListViewModel: ViewModel() {
+    // This property triggers a navigation to EmployeeDetailFragment when the user taps an employee in the EmployeeList model
+    private val _navigateToSelectedEmployee = MutableLiveData<EmployeeList.EmployeeResult?>()
+    val navigateToSelectedEmployee: LiveData<EmployeeList.EmployeeResult?>
+        get() = _navigateToSelectedEmployee
 
     // The internal MutableLiveData String that stores the most recent response
     private val _status = MutableLiveData<String>()
@@ -71,7 +75,7 @@ class EmployeeListViewModel: ViewModel() {
             try {
                 var listResult = getEmployeeListDeferred.await()
                 _employees.value = listResult
-                _employeeList.value = listResult.result
+                _employeeList.value = listResult.result    // This is our employee list
                 //_employeeResultList.value = listResult.result
                 _response.value = "Success. Response: ${listResult.response} . Status: ${listResult.status} And size is ${listResult.result?.size}"
             } catch (e: Exception) {
@@ -79,6 +83,13 @@ class EmployeeListViewModel: ViewModel() {
                 _response.value = "Failure: ${e.message}"
             }
         }
+    }
+
+    fun displayEmployeeDetails(employeeResult: EmployeeList.EmployeeResult) {
+        _navigateToSelectedEmployee.value = employeeResult
+    }
+    fun displayEmployeeDetailsComplete() {
+        _navigateToSelectedEmployee.value = null
     }
 
     override fun onCleared() {

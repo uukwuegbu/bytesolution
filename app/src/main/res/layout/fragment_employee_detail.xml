@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+        <variable
+            name="employeeDetailViewModel"
+            type="com.ugogineering.android.bytesolution.viewmodel.EmployeeDetailViewModel" />
 
     </data>
 
@@ -13,14 +16,121 @@
         android:id="@+id/root_layout"
         tools:context=".view.EmployeeDetailFragment">
 
-        <TextView
-            android:id="@+id/textViewEmployeeDetail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toStartOf="parent"
+        <ImageView
+            android:id="@+id/employee_image"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:text="Employee Detail" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:idString="@{employeeDetailViewModel.selectedEmployee}"
+            app:layout_constraintStart_toEndOf="@+id/employee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/employee_image"
+            tools:text="ID" />
+
+        <TextView
+            android:id="@+id/firstname"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:firstname="@{employeeDetailViewModel.selectedEmployee}"
+            app:layout_constraintStart_toEndOf="@id/employee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/id"
+            tools:text="First Name" />
+
+        <TextView
+            android:id="@+id/lastname"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:lastname="@{employeeDetailViewModel.selectedEmployee}"
+            app:layout_constraintStart_toEndOf="@id/employee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/firstname"
+            tools:text="Last Name" />
+
+        <TextView
+            android:id="@+id/gender"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:gender="@{employeeDetailViewModel.selectedEmployee}"
+            app:layout_constraintStart_toEndOf="@id/employee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/lastname"
+            tools:text="Gender Name" />
+
+        <TextView
+            android:id="@+id/dob"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:dob="@{employeeDetailViewModel.selectedEmployee}"
+            app:layout_constraintStart_toEndOf="@id/employee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gender"
+            tools:text="DOB" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:address="@{employeeDetailViewModel.selectedEmployee}"
+            app:layout_constraintStart_toEndOf="@id/employee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dob"
+            tools:text="Address" />
+
+        <TextView
+            android:id="@+id/country"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:country="@{employeeDetailViewModel.selectedEmployee}"
+            app:layout_constraintStart_toEndOf="@id/employee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/address"
+            tools:text="Country" />
+
+        <TextView
+            android:id="@+id/designation"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:designation="@{employeeDetailViewModel.selectedEmployee}"
+            app:layout_constraintStart_toEndOf="@id/employee_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/country"
+            tools:text="Designation" />
 
         <Button
             android:id="@+id/buttonBack"
@@ -30,7 +140,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEmployeeDetail" />
+            app:layout_constraintTop_toBottomOf="@+id/designation" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
